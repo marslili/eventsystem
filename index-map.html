@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link href="assets/fonts/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:700,400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/bootstrap-select.min.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/owl.carousel.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/jquery.nouislider.min.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+    <link href="assets/js/datetimepicker-master/build/jquery.datetimepicker.min.css" rel="stylesheet"> 
+
+    <title>事件記錄系統</title>
+
+</head>
+
+<body id="page-top" class="has-map">
+
+<div id="page-wrapper">
+    <div class="collapse has-tabs" id="user-area">
+        <div class="container">
+            <div class="inner">
+                <a href="#" class="close" data-close-parent="#user-area"><img src="assets/img/close.png" alt=""></a>
+                <div class="row">
+                    <div class="col-md-3 col-md-offset-9">
+                        <div role="tabpanel">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-pills" role="tablist">
+                                <li role="presentation"><a href="#sign-in" aria-controls="sign-in" role="tab" data-toggle="tab" data-transition-parent="#sign-in">Sign In</a></li>
+                                <li role="presentation"><a href="#register" aria-controls="register" role="tab" data-toggle="tab"  data-transition-parent="#register">Register</a></li>
+                            </ul>
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane" id="sign-in">
+                                    <form role="form" method="post" id="form-sign-in">
+                                        <div class="form-group animate move_from_bottom_short">
+                                            <input type="text" class="form-control" id="sing-in-name" name="name" placeholder="Name">
+                                        </div>
+                                        <!--end .form-group-->
+                                        <div class="form-group animate move_from_bottom_short">
+                                            <input type="email" class="form-control" id="sing-in-email" name="email" placeholder="Email">
+                                        </div>
+                                        <!--end .form-group-->
+                                        <div class="form-group animate move_from_bottom_short">
+                                            <button type="submit" class="btn btn-primary">Sign In</button>
+                                        </div>
+                                        <!--end .form-group-->
+                                    </form>
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="register">
+                                    <form role="form" method="post" id="form-register">
+                                        <div class="form-group animate move_from_bottom_short">
+                                            <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                                        </div>
+                                        <!--end .form-group-->
+                                        <div class="form-group animate move_from_bottom_short">
+                                            <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                                        </div>
+                                        <!--end .form-group-->
+                                        <div class="form-group animate move_from_bottom_short">
+                                            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                                        </div>
+                                        <!--end .form-group-->
+                                        <div class="form-group animate move_from_bottom_short">
+                                            <input type="password" class="form-control" id="confirm-password" name="confirm-password" placeholder="Confirm Password">
+                                        </div>
+                                        <!--end .form-group-->
+                                        <div class="form-group animate move_from_bottom_short">
+                                            <button type="submit" class="btn btn-primary">Register</button>
+                                        </div>
+                                        <!--end .form-group-->
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end .col-md-3-->
+                </div>
+                <!--end .row-->
+            </div>
+            <!--end .container-->
+        </div>
+        <!--end .inner-->
+    </div>
+    <!--end User area-->
+    <header class="animate" id="header">
+        <div class="container">
+            <div class="header-inner">
+                <nav class="secondary">
+                    <ul>
+                        <li><a href="#user-area" data-toggle="collapse" aria-expanded="false" aria-controls="user-area" data-tab="#sign-in" data-transition-parent="#header">登入</a></li>
+                        <li><a href="#user-area" class="promoted" data-toggle="collapse" aria-expanded="false" aria-controls="user-area" data-tab="#register" data-transition-parent="#header">註冊</a></li>
+                    </ul>
+                </nav>
+                <!--end Secondary navigation-->
+                <nav class="main">
+                    <div class="brand">
+                        <h2>事件記錄系統 </h2>
+                        
+                    </div>
+                    
+                </nav>
+                <!--end Main navigation-->
+            </div>
+            <!--end .header-inner-->
+        </div>
+        <!--end .container-->
+        <div class="container">
+            <div class="submit-container">
+                <a href="#search-collapse" class="btn btn-default btn-sm show-filter" data-toggle="collapse" aria-expanded="false" aria-controls="search-collapse">事件說明選項</a>
+                <!--a href="assets/pages/submit_e.html" class="submit-button" data-expand-width="col-8" data-transition-parent=".content-loader" data-external="true"><i><img src="assets/img/plus.png" alt=""></i></a-->
+            </div>
+        </div>
+    </header>
+    <!--end Header-->
+
+    <div class="page-content">
+        <div class="search collapse in" id="search-collapse">
+            <div class="container">
+                <form class="main-search" role="form" method="post" action="#">
+                    <div class="row" id="logo-section">
+                        <div class="row event-logo">
+                            <div class="col-sm-3 col-md-3 col-lg-3">
+                                    <a class="page-scroll" href="#input-section1">
+                                        <span class="icon-span">
+                                            <img src="assets/img/car-collision.svg" class="event-icon">
+                                        </span>
+                                        <span class="icon-span">車禍事故</span>
+                                    </a>
+                            </div>
+                            <div class="col-sm-3 col-md-3 col-lg-3">
+                                    <span class="icon-span">
+                                        <img src="assets/img/roadblock.svg" class="event-icon">
+                                    </span>
+                                    <span class="icon-span">道路封閉</span>
+                            </div>
+                            <div class="col-sm-3 col-md-3 col-lg-3">
+                                    <span class="icon-span">
+                                        <img src="assets/img/bicycle-rider.svg" class="event-icon">
+                                    </span>
+                                    <span class="icon-span">活動</span>
+                            </div>
+                            <div class="col-sm-3 col-md-3 col-lg-3">
+                                    <span class="icon-span">
+                                        <img src="assets/img/icon.svg" class="event-icon">
+                                    </span>
+                                    <span class="icon-span">壅塞</span>
+                            </div>
+                        </div>
+                        <div class="row event-logo">
+                            <div class="col-sm-3 col-md-3 col-lg-3">
+                                    <span class="icon-span">
+                                        <img src="assets/img/construction-barrier.svg" class="event-icon">
+                                    </span>
+                                    <span class="icon-span">道路施工</span>
+                            </div>
+                            <div class="col-sm-3 col-md-3 col-lg-3">
+                                    <span class="icon-span">
+                                        <img src="assets/img/warning-sign-pin.svg" class="event-icon">
+                                    </span>
+                                    <span class="icon-span">警告</span>
+                            </div>
+                            <div class="col-sm-3 col-md-3 col-lg-3">
+                                    <span class="icon-span">
+                                        <img src="assets/img/storm-cloud.svg" class="event-icon">
+                                    </span>
+                                    <span class="icon-span">天然災害</span>
+                            </div>
+                            <div class="col-sm-3 col-md-3 col-lg-3">
+                                    <span class="icon-span">
+                                        <img src="assets/img/idea.svg" class="event-icon">
+                                    </span>
+                                    <span class="icon-span">其他</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row container" id="input-section1">
+                            <div class="col-md-4 col-sm-4 col-lg-4 ">
+                                <div class="form-group">
+                                    <label for="location">事件標題</label>
+                                    
+                                        <input type="text" class="form-control" id="location" placeholder="車禍事故">
+                                    
+                                </div>
+                            </div>
+                            <div class='col-md-4 col-sm-4 col-lg-4 "'>
+                                <div class="form-group">
+                                    <label for="location">開始時間</label>
+                                    <div class="input-group">
+                                      <input type="datetime-local" class="form-control" aria-describedby="basic-addon1">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-md-4 col-sm-4 col-lg-4 "'>
+                                <div class="form-group">
+                                    <label for="location">結束時間</label>
+                                    <div class="input-group">
+                                      <input type="datetime-local" class="form-control" aria-describedby="basic-addon1">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-10 col-sm-10 col-lg-10">
+                                <div class="form-group">
+                                    <label for="comment">事件描述</label>
+                                    <textarea class="form-control" rows="5" id="comment"></textarea>
+                                    <input type="submit" value="送出">
+                                </div>
+                            </div>
+                    </div>
+                    <div class="row" id="input-section2">
+                        <div class="row inputsection" id="road-radio">
+                                <div class="col-md-3 col-lg-3 col-sm-3">
+                                    <div class="formgroup">
+                                        <label class="radio-inline">
+                                        <input name="radioGroup" id="radio1" value="option1" type="radio"> 國道</label>
+                                    </div>               
+                                </div>
+                                <div class="col-md-3 col-lg-3 col-sm-3">
+                                    <div class="formgroup">
+                                        <label class="radio-inline">
+                                        <input name="radioGroup" id="radio2" value="option2" type="radio"> 省道</label>
+                                    </div>               
+                                </div>
+                                <div class="col-md-3 col-lg-3 col-sm-3">
+                                    <div class="formgroup">
+                                        <label class="radio-inline">
+                                        <input name="radioGroup" id="radio3" value="option3" type="radio"> 快速道路</label>
+                                    </div>               
+                                </div>
+                                <div class="col-md-3 col-lg-3 col-sm-3">
+                                    <div class="formgroup">
+                                        <label class="radio-inline">
+                                        <input name="radioGroup" id="radio4" value="option4" type="radio" checked="checked"> 一般道路</label>
+                                    </div>               
+                                </div>
+                        </div>
+                        <div class="row inputsection" id="address-select">
+                            <div class="col-md-4 col-lg-4 col-sm-4">
+                                <div class="from-group">
+                                    <label class="radio-inline">縣市
+                                    
+                                    </label>
+                                    <select name="city-select" id="cityselect"  class="animate" multiple title="台北市                            " data-transition-parent=".dropdown-menu">
+                                        <option value="1">台北市</option>
+                                        <option value="2">新北市</option>
+                                        <option value="3">桃園市</option>
+                                    </select>
+                                </div>  
+                            </div>
+                            <div class="col-md-4 col-lg-4 col-sm-4">
+                                <div class="from-group">
+                                    <label class="radio-inline ">行政區
+                                      
+                                    </label>
+                                    <select name="district-select" id="districtselect" class="animate" multiple title="All" data-transition-parent=".dropdown-menu">
+                                        <option value="1"> AAAAAAAAAAAA </option>
+                                        <option value="2"> AAAAAAAAAAAA </option>
+                                        <option value="3"> AAAAAAAAAAAA </option>
+                                      </select> 
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-lg-4 col-sm-4">
+                                <div class="from-group">
+                                    <label class="radio-inline ">道路別
+                                      
+                                    </label>
+                                    <select name="road-select" id="roadselect" class="animate" multiple title="All" data-transition-parent=".dropdown-menu">
+                                        <option value="1">       </option>
+                                        <option value="2">       </option>
+                                        <option value="3">        </option>
+                                      </select> 
+                                </div> 
+                            </div>
+                        </div>
+                        <div class="row inputsection" id="address-input">
+                            <div class="col-md-4 col-lg-4 col-sm-4">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="巷" aria-describedby="basic-addon1">
+                                    <span class="input-group-addon" id="basic-addon1">巷</span>
+                                </div>  
+                            </div>
+                            <div class="col-md-4 col-lg-4 col-sm-4">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="巷" aria-describedby="basic-addon2">
+                                    <span class="input-group-addon" id="basic-addon2">弄</span>
+                                </div>  
+                            </div>
+                            <div class="col-md-4 col-lg-4 col-sm-4">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="巷" aria-describedby="basic-addon3">
+                                    <span class="input-group-addon" id="basic-addon3">號</span>
+                                </div>  
+                            </div>
+
+                        </div>
+                    </div>
+                      
+                    </div>
+                    <!--/.row-->
+                </form>
+                <!-- /.main-search -->
+            </div>
+            <!--end .container-->
+        </div>
+        <!--end .search-->
+
+        <div class="content-inner">
+            <div class="container" id="main-container">
+                <div class="content-loader">
+                    <div class="content fade_in animate">
+                        <a href="#" class="close" id="close"><img src="assets/img/close.png" alt=""></a>
+                        <!--external content goes here-->
+                    </div>
+                </div>
+                <!--end Content Loader-->
+            </div>
+        </div>
+
+        <div class="map-wrapper grid">
+            <div class="map height-500" id="map"></div>
+            <!--end .map-->
+        </div>
+        <!--end .map-wrapper-->
+
+</div>
+
+<script type="text/javascript" src="assets/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript" src="assets/js/imagesloaded.pkgd.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery.color-2.1.2.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery.average-color.js"></script>
+<script type="text/javascript" src="assets/js/masonry.pkgd.min.js"></script>
+<script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyAfEUlYZZ051t4XJbjSb4OqlfJ1H7BCkvs&libraries=places"></script>
+<script type="text/javascript" src="assets/js/infobox.js"></script>
+<script type="text/javascript" src="assets/js/richmarker-compiled.js"></script>
+<script type="text/javascript" src="assets/js/markerclusterer.js"></script>
+<script type="text/javascript" src="assets/js/smoothscroll.js"></script>
+<script type="text/javascript" src="assets/js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="assets/js/bootstrap-select.js"></script>
+<script type="text/javascript" src="assets/js/icheck.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery.nouislider.all.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery.inview.min.js"></script>
+<script type="text/javascript" src="assets/js/functions.js"></script>
+<script type="text/javascript" src="assets/js/custom.js"></script>
+
+<!--[if lte IE 9]>
+<script type="text/javascript" src="assets/js/ie-scripts.js"></script>
+$.getJSON(jsonPath)
+            .done(function(json) {
+                createHomepageGoogleMap(_latitude,_longitude,json);
+            })
+            .fail(function( jqxhr, textStatus, error ) {
+                console.log(error);
+            })
+<![endif]-->
+<script src="assets/js/datetimepicker-master/build/jquery.datetimepicker.full.min.js"></script>
+<script>
+    var _latitude = 51.541216;
+    var _longitude = -0.095678;
+    var jsonPath = 'https://dl.dropboxusercontent.com/s/hw28fx9zama315l/items.json?dl=0';
+
+    // Load JSON data and create Google Maps
+    $.ajax({
+        type:'GET',
+        dataType:'json',
+        url:'https://dl.dropboxusercontent.com/s/hw28fx9zama315l/items.json?dl=0',
+        async:false,
+        success : function(json) {
+            createHomepageGoogleMap(_latitude,_longitude,json);
+        }
+    });
+    $.datetimepicker.setLocale('en');
+    $('#datetimepicker').datetimepicker();
+    
+</script>
+ 
+
+
+</body>
+</html>
